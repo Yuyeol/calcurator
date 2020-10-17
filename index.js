@@ -17,10 +17,14 @@ const handleClickOper = (event) => {
 
   if (oper == "C") {
     outputBlock.innerText = "";
+    numClicked = true;
+    operClicked = false;
   } else if (oper == "=") {
-    outputBlock.innerText = eval(outputBlock.innerText);
-    operClicked = true;
-    numClicked = false;
+    if (outputBlock.innerText !== "") {
+      outputBlock.innerText = eval(outputBlock.innerText);
+      operClicked = true;
+      numClicked = false;
+    }
   } else {
     if (operClicked == true) {
       outputBlock.innerText = outputBlock.innerText + oper;
